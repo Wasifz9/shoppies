@@ -1,0 +1,130 @@
+.container-fluid{
+    font-weight: bold;
+}
+.card-horizontal {
+    display: flex;
+    color: white;
+    opacity:1;
+    position: relative;
+    transition: 0.4s;
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    margin: 30px 0;
+    background-color: #282c34;
+    transition: 0.4s;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 150px;
+}
+
+.selected-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    margin: 30px 0;
+    background-color: #282c34;
+    opacity: 0.3;
+    pointer-events:none; 
+}
+
+
+.card-footer{
+    background-color: #0a8f15;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:30px;
+    bottom: 0;
+}
+
+.card-footer:hover{
+    background-color:#0a8f15be;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.card-title{
+    display:flex;
+    margin: 10px;
+    text-align: left;
+}
+
+.card-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+
+.middle {
+    opacity:0;
+    text-align: center;
+    background-color: #282c34;
+    width:0px;
+    height:0px;
+  }
+  
+.more{
+    font-size: 24px;
+}
+.more:hover{
+    transform:scale(1.1);
+    transition: 0.2s;
+    color: #0a8f15;
+}
+  
+  
+.card-horizontal:hover .middle {
+    position: absolute;
+    top:0;
+    left:0;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    border-radius: 5px;
+    width:100%;
+    height: 100%;
+    opacity:0.95;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
+  
+
+@media screen and (min-width: 320px) {
+    .card-title {
+      font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    }
+  }
+
+@media screen and (min-width: 1000px) {
+    .card-title {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (min-width: 320px) {
+    .card-info {
+      font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .card-info {
+      font-size: 12px;
+    }
+  }
+
+  .card-info{
+      text-align: left;
+      margin: 5px;
+  }

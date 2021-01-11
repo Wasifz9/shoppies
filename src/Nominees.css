@@ -1,0 +1,132 @@
+.opnbtn:hover{
+    cursor:pointer;
+    opacity: 0.95;
+    height: 6vh;
+}
+
+.selected-opnbtn{
+    height: 6vh;
+    border-radius: 10px 10px 0 0;
+    float: right;
+    transition: 0.2s;
+    border-bottom: 0;
+    background-color: rgb(247, 247, 247);
+    color: black;
+    cursor:pointer;
+    opacity: 0.95;
+    transition: 0.3s;
+    width: 100%;
+    border-color: black;
+    padding: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+  .selected-opnbtn:hover span {
+    display:none;
+  }
+  
+  .selected-opnbtn:hover:before {
+    transition-delay: 0.5;
+    content:"Close";
+
+  }
+  
+  .selected-opnbtn:hover {
+    border-width: 3px;
+    border-color: #e74242;
+    background-color: #e74242;
+    color:rgb(247, 247, 247);
+  }
+
+.rmvbtn{
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #e74242;
+  color:  #e74242;
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  background-color: none;
+  transition: 0.2s;
+  margin: 7px 0px;
+}
+
+.rmvbtn:hover{
+    color: rgb(247, 247, 247);
+    background-color: #e74242;
+    transform: scale(1.1);
+    cursor: pointer; 
+
+}
+.opnbtn{
+    height: 4vh;
+    border-radius: 10px 10px 0 0;
+    float: right;
+    transition: 0.2s;
+    border-bottom: 0;
+    background-color: rgb(247, 247, 247);
+    color: black;
+    border-color: black;
+    width: 100%;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (min-width: 320px) {
+      .nominationItems{
+          width: 70vw;
+          font-size: calc(10px + 6 * ((100vw - 320px) / 680));
+          opacity: 0.9;
+      }
+      .Nominee{
+          align-items: center;
+      }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .nominationItems{
+        width:25vw;
+        font-size: 18px;
+        opacity: 0.75;
+    }
+    .opnbtn, .selected-opnbtn{
+        width:25vw;
+    }
+    
+  }
+
+  .nominationItems{
+      margin: 0px;
+      
+      border: none;
+      color: #101318;
+      background-color: rgb(247, 247, 247);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+      height: 0px;
+      overflow: hidden;
+      transition: height ease 0.3s;
+  }
+
+  .nominationItems.show{
+      height:75vh;
+  }
+
+  .Nominee{
+      display: flex;
+      flex-direction: column;
+      float: right;
+      font-weight: bold; 
+      scroll-behavior: auto;
+      border-radius: 10px 10px 0 0;
+  }
+
+  .divider{
+      height: 2px;
+      background-color:#52d19c;
+      width: 100%;
+      margin: 6px 0px 6px 0px;
+      align-self: center; 
+  }
+
