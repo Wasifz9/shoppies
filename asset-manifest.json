@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/shoppies/static/css/main.01802cd7.chunk.css",
+    "main.css": "/shoppies/static/css/main.689f7eaa.chunk.css",
     "main.js": "/shoppies/static/js/main.ef70d4c7.chunk.js",
     "main.js.map": "/shoppies/static/js/main.ef70d4c7.chunk.js.map",
     "runtime-main.js": "/shoppies/static/js/runtime-main.dffe1b37.js",
@@ -10,13 +10,13 @@
     "static/js/3.0d1881fc.chunk.js": "/shoppies/static/js/3.0d1881fc.chunk.js",
     "static/js/3.0d1881fc.chunk.js.map": "/shoppies/static/js/3.0d1881fc.chunk.js.map",
     "index.html": "/shoppies/index.html",
-    "static/css/main.01802cd7.chunk.css.map": "/shoppies/static/css/main.01802cd7.chunk.css.map",
+    "static/css/main.689f7eaa.chunk.css.map": "/shoppies/static/css/main.689f7eaa.chunk.css.map",
     "static/js/2.490a3c61.chunk.js.LICENSE.txt": "/shoppies/static/js/2.490a3c61.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dffe1b37.js",
     "static/js/2.490a3c61.chunk.js",
-    "static/css/main.01802cd7.chunk.css",
+    "static/css/main.689f7eaa.chunk.css",
     "static/js/main.ef70d4c7.chunk.js"
   ]
 }
