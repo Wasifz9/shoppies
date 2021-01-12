@@ -76,13 +76,16 @@
 
 @media screen and (min-width: 320px) {
       .nominationItems{
-          width: 70vw;
+          width: 85vw;
           font-size: calc(10px + 6 * ((100vw - 320px) / 680));
-          opacity: 0.9;
+          opacity: 0.95;
       }
       .Nominee{
           align-items: center;
       }
+      .opnbtn{
+        opacity: 0.7;
+    }
   }
 
   @media screen and (min-width: 1000px) {
@@ -95,7 +98,10 @@
         width:25vw;
     }
     
+
   }
+
+
 
   .nominationItems{
       margin: 0px;
