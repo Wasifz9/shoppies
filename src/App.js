@@ -3,6 +3,7 @@ import './App.css';
 import React, {Component} from 'react';
 import MovieCard from './MovieCard.js';
 import Nominees from './Nominees.js';
+import loading from './Loading.gif';
 import { debounce } from 'lodash'
 var apikey = '&apikey=316355da'
 
@@ -13,13 +14,12 @@ class App extends React.Component {
     // Don't call this.setState() here!
     this.state = { 
       items: [],
-      isSearched: false,
+      isReturned: false,
       isLoaded: false,
       isFinished: false,
       value: "",
       nominations: [],
       nomineeIDs: [],
-
     };
    this.updateValue = this.updateValue.bind(this);
    this.callAPI = this.callAPI.bind(this);
@@ -27,6 +27,8 @@ class App extends React.Component {
    this.handleNominations = this.handleNominations.bind(this);
    this.removeNominations = this.removeNominations.bind(this);
   }
+
+
 
   componentDidMount() {
       fetch('https://www.omdbapi.com/?s=' + this.state.value + apikey)
@@ -45,6 +47,7 @@ class App extends React.Component {
       isLoaded:false 
     })
   }
+
 
   callAPI = debounce( () =>{
     const {value} = this.state;
@@ -101,28 +104,28 @@ class App extends React.Component {
     var { items } = this.state;
     if (this.state.value == ''){
       return (
-        <div className = 'home'>
-        <p className = "resultstext" style = {{ textAlign: 'center', fontSize: 22}}>Start typing to find your all-time movies!</p>
+        <div className = 'home1'>
+        <p className = "resultstext" style = {{ marginBottom: 10 + 'vh', textAlign: 'center', fontSize:28}}>Start typing to find your all-time movies!</p>
         </div>
       );
     } else if (!this.state.isLoaded){
       return (
-        <div className = 'home'>
-          <p> <span className = 'resultstext'>Loading...</span></p>
+        <div className = 'home1'>
+          <div class="loader"></div>
         </div>
       );
     }
     else if (items.Response == 'False'){
       return (
-        <div className = 'home'>
-          <p> <span className = 'resultstext'>No Results :(</span></p>
+        <div className = 'home1'>
+          <p className = 'resultstext' style = {{ marginBottom: 10 + 'vh', textAlign: 'center'}} >No results...  Try another one?</p>
         </div>
       );
     } else if (items.hasOwnProperty('Plot') && items.Type == 'movie'){
       return (
         <div> 
           <p> <span className = 'resultstext'>Results</span></p>
-          <MovieCard nomineeIDs = {this.state.nomineeIDs} handleNominations = {this.handleNominations} info = {this.state.items}/>
+          <MovieCard nomineeIDs = {this.state.nomineeIDs} handleNominations = {this.handleNominations}  info = {this.state.items}/>
         </div>
       );
     }  
@@ -135,7 +138,7 @@ class App extends React.Component {
         <div> 
           <p> <span className = 'resultstext'>Results:</span></p>
           <ul> 
-             {this.state.items.Search.map(item => (<MovieCard nomineeIDs = {this.state.nomineeIDs} handleNominations = {this.handleNominations} info = {item}/>))}
+             {this.state.items.Search.map(item => (<MovieCard  nomineeIDs = {this.state.nomineeIDs} handleNominations = {this.handleNominations} info = {item}/>))}
            </ul>
       </div>
       );
@@ -148,11 +151,11 @@ class App extends React.Component {
   renderDirections(){
     if (this.state.nomineeIDs.length > 4){
       return(
-        <p className ="searchHeadertext" style = {{color: '#e74242', borderColor: '#e74242'}}> Your list is full! <br/> You can remove a film to continue. <br/> </p>
+        <p className ="searchHeadertext" style = {{color: 'white'}}> Remove to continue. <br/> </p>
       );
     }else {
       return (  
-        <p className ="searchHeadertext" > Search for movies to add to your favourites! <br/> </p>
+        <p className ="searchHeadertext" > Search! </p>
       );
     }
   }
@@ -162,7 +165,8 @@ class App extends React.Component {
     var { isLoaded, isSearched, isFinished, items} = this.state;
       return (
         <div className="App">
-            <div className = "searchHeader"> 
+            <div className = { this.state.nomineeIDs.length > 4 ? "invalid searchHeader": "searchHeader"}>
+            
               {this.renderDirections()}
               <input type="text" placeholder = "search" value={this.state.value} onChange={this.handleChange}/>
             </div>

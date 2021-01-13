@@ -20,6 +20,8 @@ class MovieCard extends React.Component{
        this.handleSelects = this.handleSelects.bind(this);
       }
 
+
+
     handleInfo(info){
         fetch('https://www.omdbapi.com/?t=' + info.Title + apikey)
         .then(res => res.json())
@@ -42,9 +44,7 @@ class MovieCard extends React.Component{
     renderInfo(info){
         if (this.state.moreInfo == false){
             return (
-                <p>
-                    <span class = 'more' onClick = {(e) => this.handleInfo(info)}> More</span> 
-                </p>
+                <span class = 'more' onClick = {(e) => this.handleInfo(info)}> More</span> 
             );
         }else{
             return(
@@ -78,15 +78,22 @@ class MovieCard extends React.Component{
                                     <img class="" src={info.Poster} alt="Card image cap"></img>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-title"> {info.Title} ({info.Year}) </p>
-                                    {/* <p class="card-text">{info.Plot}</p>*/}
+                                    <p class="card-title"> {info.Title} <br/> </p>
+                                    <p className = 'highlighted1'> {info.Year} </p> 
                                 </div>
                                 <div class="middle">
-                                        {this.renderInfo(info)}
+                                        {/*this.renderInfo(info)*/}
+                                        <p className = {this.state.moreInfo == false ? 'extraInfoTitle shown':'extraInfoTitle'} >
+                                            <span class = 'more' onClick = {(e) => this.handleInfo(info)}> More</span> 
+                                        </p>
+                                        <div className = {this.state.moreInfo ? 'extraInfo shown':'extraInfo'}> 
+                                            <p class="card-info" > <span className = 'highlighted'>Title:</span> {this.state.title} <span className = 'highlighted'>({this.state.year})</span> <br/>    <span className = 'highlighted'>Director:</span> {this.state.director}   <br/> <span className = 'highlighted'>Plot:</span> {this.state.plot} <br/> <span className = 'highlighted'>Genre:</span> {this.state.genre} </p>
+                                        </div>
+
                                 </div>
                             </div>
                             <div  className = {nomineeIDs.length > 4 ? 'card-footer inactive':'card-footer'}  onClick = {(e) => this.handleSelects(info)}>
-                                <p> ADD</p>
+                                +
                             </div>
                         </div>
                     </div>

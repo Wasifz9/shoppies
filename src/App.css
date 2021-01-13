@@ -1,7 +1,8 @@
 
 
 .App {
-  background-color: #004c3f;
+  background-color: rgb(0, 76, 63);
+  background: linear-gradient(90deg, rgba(0, 76, 63,1) 0%, rgba(0, 76, 63,1) 71%, rgba(0, 76, 63,0.9164259453781513) 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,16 +10,18 @@
   justify-content: center;
   font-size: 14px;
   color: white;
+
 }
 
 input[type=text], select, textarea, date {
   width: 30%;
   padding: 12px;
-  border: 2px solid black;
   border-radius: 16px;
   box-sizing: border-box;
   resize: vertical;
   font-size: 16px;
+  font-weight: bold;
+  border: none;
 }
 
 input:focus,
@@ -40,9 +43,10 @@ li{
 
 .results {
   width: 40%;
-
   margin: 0;
+  min-height: 75vh;
 }
+
 
 .content{
   display: flex;
@@ -50,7 +54,8 @@ li{
   min-height: 80vh;
   width: 100vw;
   justify-content: center;
-  margin-top:20vh;
+  margin-top:22vh;
+  height: auto;
 }
 
 img{
@@ -65,13 +70,19 @@ img{
   align-items: center;
   flex-direction: column;
   min-height: 20vh; 
-  margin: 0;
-  background-color: #011b16;
+  background-color: #102621;
+
   width: 100%;
   text-align: center;
   position: fixed;
   top: 0px;
   z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+  transition: background, background-color ease-out 0.5s;
+}
+
+.searchHeader.invalid{
+  background-color:rgb(231, 66, 66);
 }
 
 .shortlist{
@@ -98,12 +109,13 @@ img{
 
 @media screen and (min-width: 320px) {
   .searchHeadertext {
-    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(36px + 6 * ((100vw - 320px) / 680));
   }
 }
 @media screen and (min-width: 1000px) {
   .searchHeadertext {
-    font-size: 22px;
+    font-size: 60px;
+    padding: 0px;
   }
   .shortlist{
     right: 0px;
@@ -117,27 +129,56 @@ button{
 
 .resultstext{
   color:#52d19c;
-  background-color:#282c34;
+  background: linear-gradient(90deg, rgba(16,38,33,1) 0%, rgba(16,38,33,1) 71%, rgba(16,38,33,0.9164259453781513) 100%);
   border-radius: 10px;
-  font-weight: bold;
   font-size: 35px;
   margin-bottom: 0px;
   padding: 5px 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+  animation: pulse 3s ease-in-out infinite;
 }
 .searchHeadertext{
-  font-weight: bold;
-  border-radius: 5px;
-  border-style: solid;
-  border-color: #52d19c;
   color:  #52d19c;
-  font-size: 16px;
-  text-align: center;
-  padding: 8px;
-  margin: 0px 7px 20px 7px;
+  margin:0 0 3px 0;
 }
 
-.searchHeadertext.showDirections{
-  opacity: 1;
-  height: auto;
+
+.loader {
+  border: 8px solid #52d19c;
+  border-radius: 50%;
+  border-top: 8px solid #173630;
+  width: 200px;
+  height: 200px;
+  -webkit-animation: spin 3s ease-in-out infinite; 
+  animation: spin 1s ease-in-out infinite;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.home1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0px; 
+  padding: 0px;
+}
+
+
+
+
+
+@keyframes pulse {
+  0% {transform:scale(1);  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);}
+  50%{transform:scale(1.05); box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 25px 0 rgba(0, 0, 0, 0.4);}
+  100%{transform:scale(1); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);}
 }

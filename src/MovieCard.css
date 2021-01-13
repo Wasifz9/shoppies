@@ -1,44 +1,47 @@
-.container-fluid{
-    font-weight: bold;
-}
+
 .card-horizontal {
     display: flex;
     color: white;
     opacity:1;
     position: relative;
     transition: 0.4s;
+    padding: 10px;
 }
 
 .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     margin: 30px 0;
-    background-color: #282c34;
     transition: 0.4s;
     border-radius: 5px;
-    padding: 10px;
-    min-height: 150px;
+    padding: 15px;
+    max-height: 300px;
+    background-color: rgb(16, 38, 33);
+    background: linear-gradient(90deg, rgba(16,38,33,1) 0%, rgba(16,38,33,1) 71%, rgba(16,38,33,0.9164259453781513) 100%);
 }
 
 .selected-card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     margin: 30px 0;
-    background-color: #282c34;
+    background: rgb(16, 38, 33);
+    background: linear-gradient(90deg, rgba(16,38,33,1) 0%, rgba(16,38,33,1) 71%, rgba(16,38,33,0.9164259453781513) 100%);
     opacity: 0.3;
     pointer-events:none; 
 }
 
 
 .card-footer{
-    background-color: #0a8f15;
+    background-color: #50B83C;
     width: 100%;
     text-align: center;
     transition: 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
-    height:30px;
     bottom: 0;
     border-radius: 5px;
+    height: 50px;
+    font-size: 30px;
+    padding: 0px;
 }
 
 .card-footer.inactive{
@@ -47,7 +50,7 @@
 }
 
 .card-footer:hover{
-    background-color:#0a8f15be;
+    background-color: #3d8c2e;
     width: 100%;
     cursor: pointer;
 }
@@ -55,37 +58,56 @@
 
 .card-title{
     display:flex;
-    margin: 10px;
     text-align: left;
+    margin: 0px;
 }
 
 .card-body{
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-
+    flex-direction: column;
+    margin-left:20px;
 }
 
 
 .middle {
     opacity:0;
     text-align: center;
-    background-color: #282c34;
+    background-color: rgb(16, 38, 33);
     width:0px;
     height:0px;
+    
   }
   
 .more{
     font-size: 24px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    
+    display: inline-block;
+    position: relative;
 }
-.more:hover{
-    font-size: 26px;
-    transition: 0.2s;
-    color: #52d19c;
+
+
+.more:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
 }
-  
-  
+.more:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+
 .card-horizontal:hover .middle {
     position: absolute;
     top:0;
@@ -108,29 +130,84 @@
 
 @media screen and (min-width: 320px) {
     .card-title {
-      font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+      font-size: calc(18px + 6 * ((100vw - 320px) / 680));
     }
+    .card-info {
+      font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+    }
+    .highlighted1{
+      font-size: calc(55px + 6 * ((100vw - 320px) / 680));
+    }
+
   }
 
 @media screen and (min-width: 1000px) {
     .card-title {
+      font-size: 24px;
+    }
+    .card-info {
       font-size: 16px;
+    }
+    .highlighted1{
+      font-size: 55px;
     }
   }
 
   @media screen and (min-width: 320px) {
-    .card-info {
-      font-size: calc(12px + 6 * ((100vw - 320px) / 680));
-    }
+
   }
 
   @media screen and (min-width: 1000px) {
-    .card-info {
-      font-size: 12px;
-    }
+
+
   }
 
   .card-info{
       text-align: left;
       margin: 5px;
   }
+
+.extraInfo{
+  height: 0px;
+  opacity: 0;
+  transition: opacity, height ease 0.2s;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.extraInfo.shown{
+  opacity:1;
+  height: 100%;
+}
+
+.extraInfoTitle{
+  height: 0px;
+  opacity: 0;
+  transition: opacity,height ease 0.2s;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.extraInfoTitle.shown{
+  opacity:1;
+  height: 100%;
+}
+
+.highlighted{
+  font-weight: bold;
+}
+
+.highlighted1{
+  color:rgba(255, 255, 255, 0.241);
+  margin: 0px 0px;
+  padding: 0px;
+  font-weight: lighter;
+}
