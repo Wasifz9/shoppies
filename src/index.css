@@ -40,4 +40,6 @@ html,body
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
+    background-color: rgb(0, 76, 63);
+    background: linear-gradient(90deg, rgba(0, 76, 63,1) 0%, rgba(0, 76, 63,1) 71%, rgba(0, 76, 63,0.9164259453781513) 100%);
 }

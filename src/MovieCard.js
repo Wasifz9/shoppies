@@ -14,10 +14,13 @@ class MovieCard extends React.Component{
             genre: '',
             moreInfo: false,
             selected: false,
-            
+            show: false
         };
        this.handleInfo = this.handleInfo.bind(this);
        this.handleSelects = this.handleSelects.bind(this);
+       this.revealer = this.revealer.bind(this);
+       this.hider = this.hider.bind(this);
+      
       }
 
 
@@ -32,9 +35,43 @@ class MovieCard extends React.Component{
                     plot: json.Plot,
                     year: json.Year,
                     genre: json.Genre,
-                    moreInfo: true
+                    moreInfo: true,
             })
+
+
         });
+    }
+    revealer(){
+        this.setState({
+            show: true
+        })
+        
+    }
+
+    hider(){
+        this.setState({
+            show: false
+        })
+
+        this.props.returnHandler();
+    }
+
+    componentDidMount(){
+        this.props.returnHandler();
+        setTimeout(this.revealer, 10)
+    }
+    /*componentWillReceiveProps(newProps){
+        if(!newProps.item)
+            return this.hider();
+        else    
+            return this.revealer();
+        
+    }*/
+    componentWillUnmount(){
+        this.props.returnHandler();
+    }
+    
+    imageHandler(){
     }
 
     handleSelects(info){
@@ -69,13 +106,14 @@ class MovieCard extends React.Component{
         });*/
 
         return (
-            <div class="container-fluid">
-                <div class="row">
+            <div  >
+                <div className = {this.state.show ? "container-fluid animated animatedFadeInUp fadeInUp":"container-fluid"}>
+                    {this.state.show ? console.log('showing') : console.log('not showing')}
                     <div class="col-12 mt-3">
-                        <div className = {nomineeIDs.includes(info.imdbID) ? 'selected-card':'card'} >
+                        <div className = {nomineeIDs.includes(info.imdbID) ? 'selected-card card':'card'} >
                             <div class="card-horizontal">
                                 <div class="img-square-wrapper">
-                                    <img class="" src={info.Poster} alt="Card image cap"></img>
+                                    <img class="poster" src={info.Poster} alt="Card image cap"></img>
                                 </div>
                                 <div class="card-body">
                                     <p class="card-title"> {info.Title} <br/> </p>

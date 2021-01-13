@@ -26,6 +26,7 @@ class App extends React.Component {
    this.handleChange = this.handleChange.bind(this);
    this.handleNominations = this.handleNominations.bind(this);
    this.removeNominations = this.removeNominations.bind(this);
+   this.returnHandler = this.returnHandler.bind(this);
   }
 
 
@@ -39,6 +40,12 @@ class App extends React.Component {
             items: json,
           })
         });
+  }
+
+  returnHandler(){
+    this.setState({
+      isReturned: !this.state.isReturned
+    })
   }
 
   updateValue(value){
@@ -105,7 +112,7 @@ class App extends React.Component {
     if (this.state.value == ''){
       return (
         <div className = 'home1'>
-        <p className = "resultstext" style = {{ marginBottom: 10 + 'vh', textAlign: 'center', fontSize:28}}>Start typing to find your all-time movies!</p>
+        <p className = "resultstext animated animatedFadeInUp fadeInUp" style = {{ marginBottom: 10 + 'vh', textAlign: 'center', fontSize:28}}>Start typing to find your all-time movies!</p>
         </div>
       );
     } else if (!this.state.isLoaded){
@@ -118,14 +125,13 @@ class App extends React.Component {
     else if (items.Response == 'False'){
       return (
         <div className = 'home1'>
-          <p className = 'resultstext' style = {{ marginBottom: 10 + 'vh', textAlign: 'center'}} >No results...  Try another one?</p>
+          <p className = 'resultstext animated animatedFadeInUp fadeInUp' style = {{ marginBottom: 10 + 'vh', textAlign: 'center'}} >No results...  Try another one?</p>
         </div>
       );
     } else if (items.hasOwnProperty('Plot') && items.Type == 'movie'){
       return (
         <div> 
-          <p> <span className = 'resultstext'>Results</span></p>
-          <MovieCard nomineeIDs = {this.state.nomineeIDs} handleNominations = {this.handleNominations}  info = {this.state.items}/>
+          <MovieCard returnHandler = {this.returnHandler} nomineeIDs = {this.state.nomineeIDs} handleNominations = {this.handleNominations}  info = {this.state.items}/>
         </div>
       );
     }  
@@ -136,9 +142,8 @@ class App extends React.Component {
 
       return (  
         <div> 
-          <p> <span className = 'resultstext'>Results:</span></p>
           <ul> 
-             {this.state.items.Search.map(item => (<MovieCard  nomineeIDs = {this.state.nomineeIDs} handleNominations = {this.handleNominations} info = {item}/>))}
+             {this.state.items.Search.map(item => (<MovieCard returnHandler = {this.returnHandler} nomineeIDs = {this.state.nomineeIDs} handleNominations = {this.handleNominations} info = {item}/>))}
            </ul>
       </div>
       );
@@ -166,12 +171,12 @@ class App extends React.Component {
       return (
         <div className="App">
             <div className = { this.state.nomineeIDs.length > 4 ? "invalid searchHeader": "searchHeader"}>
-            
               {this.renderDirections()}
               <input type="text" placeholder = "search" value={this.state.value} onChange={this.handleChange}/>
             </div>
-            <div className = "content">
+            <div className = {this.state.isReturned ? 'bigger content':"normal content"}>
               <div className = 'results'>
+              <p className = {this.state.isReturned ? 'container-fluid1 animated animatedFadeInUp fadeInUp':'container-fluid1'}> <span className = 'resultstext'>Results:</span></p>
                 {this.renderItems()}
               </div>
               <div className = "shortlist">
