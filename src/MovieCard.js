@@ -42,8 +42,8 @@ class MovieCard extends React.Component{
     renderInfo(info){
         if (this.state.moreInfo == false){
             return (
-                <p class = 'more' onClick = {(e) => this.handleInfo(info)}>
-                    More 
+                <p>
+                    <span class = 'more' onClick = {(e) => this.handleInfo(info)}> More</span> 
                 </p>
             );
         }else{
@@ -72,7 +72,7 @@ class MovieCard extends React.Component{
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 mt-3">
-                        <div className = {nomineeIDs.includes(info.imdbID) || nomineeIDs.length > 4 ? 'selected-card':'card'} >
+                        <div className = {nomineeIDs.includes(info.imdbID) ? 'selected-card':'card'} >
                             <div class="card-horizontal">
                                 <div class="img-square-wrapper">
                                     <img class="" src={info.Poster} alt="Card image cap"></img>
@@ -85,7 +85,7 @@ class MovieCard extends React.Component{
                                         {this.renderInfo(info)}
                                 </div>
                             </div>
-                            <div class="card-footer"  onClick = {(e) => this.handleSelects(info)}>
+                            <div  className = {nomineeIDs.length > 4 ? 'card-footer inactive':'card-footer'}  onClick = {(e) => this.handleSelects(info)}>
                                 <p> ADD</p>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 
 
 .App {
-  background-color:#52d19c;
+  background-color: #004c3f;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -66,7 +66,7 @@ img{
   flex-direction: column;
   min-height: 20vh; 
   margin: 0;
-  background-color: #101318;
+  background-color: #011b16;
   width: 100%;
   text-align: center;
   position: fixed;
@@ -131,8 +131,13 @@ button{
   border-style: solid;
   border-color: #52d19c;
   color:  #52d19c;
-  padding: 8px;
-  margin: 0px 7px 20px 7px;
   font-size: 16px;
   text-align: center;
+  padding: 8px;
+  margin: 0px 7px 20px 7px;
+}
+
+.searchHeadertext.showDirections{
+  opacity: 1;
+  height: auto;
 }

@@ -38,6 +38,12 @@
     align-items: center;
     height:30px;
     bottom: 0;
+    border-radius: 5px;
+}
+
+.card-footer.inactive{
+  opacity: 0.3;
+  pointer-events:none; 
 }
 
 .card-footer:hover{
@@ -74,10 +80,9 @@
     font-size: 24px;
 }
 .more:hover{
-    transform:scale(1.1);
+    font-size: 26px;
     transition: 0.2s;
     color: #52d19c;
-    
 }
   
   

@@ -148,11 +148,11 @@ class App extends React.Component {
   renderDirections(){
     if (this.state.nomineeIDs.length > 4){
       return(
-        <p className ="searchHeadertext" style = {{color: '#e74242', borderColor: '#e74242'}}> >> Your list is full! You can remove a film to continue. <br/> </p>
+        <p className ="searchHeadertext" style = {{color: '#e74242', borderColor: '#e74242'}}> Your list is full! <br/> You can remove a film to continue. <br/> </p>
       );
     }else {
       return (  
-        <p className ="searchHeadertext" > >> Search for movies to add to your favourites! <br/> </p>
+        <p className ="searchHeadertext" > Search for movies to add to your favourites! <br/> </p>
       );
     }
   }
@@ -160,8 +160,6 @@ class App extends React.Component {
 
   render () {
     var { isLoaded, isSearched, isFinished, items} = this.state;
-
-
       return (
         <div className="App">
             <div className = "searchHeader"> 
