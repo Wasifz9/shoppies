@@ -1,5 +1,6 @@
 import React, {Componont} from 'react';
 import './MovieCard.css';
+import placeHolder from './100x150.png';
 var apikey = '&apikey=316355da'
 
 class MovieCard extends React.Component{
@@ -20,7 +21,7 @@ class MovieCard extends React.Component{
        this.handleSelects = this.handleSelects.bind(this);
        this.revealer = this.revealer.bind(this);
        this.hider = this.hider.bind(this);
-      
+    
       }
 
 
@@ -52,7 +53,6 @@ class MovieCard extends React.Component{
         this.setState({
             show: false
         })
-
         this.props.returnHandler();
     }
 
@@ -60,20 +60,11 @@ class MovieCard extends React.Component{
         this.props.returnHandler();
         setTimeout(this.revealer, 10)
     }
-    /*componentWillReceiveProps(newProps){
-        if(!newProps.item)
-            return this.hider();
-        else    
-            return this.revealer();
-        
-    }*/
+
     componentWillUnmount(){
         this.props.returnHandler();
     }
     
-    imageHandler(){
-    }
-
     handleSelects(info){
         this.props.handleNominations(info);
     }
@@ -99,33 +90,31 @@ class MovieCard extends React.Component{
     render(){
         const info = this.props.info; 
         const nomineeIDs = this.props.nomineeIDs;
-       /* fetch('http://www.omdbapi.com/?t=' + info.Title + apikey)
-        .then(res => res.json())
-        .then(json => {
-            info = json; 
-        });*/
 
         return (
             <div  >
                 <div className = {this.state.show ? "container-fluid animated animatedFadeInUp fadeInUp":"container-fluid"}>
-                    {this.state.show ? console.log('showing') : console.log('not showing')}
                     <div class="col-12 mt-3">
                         <div className = {nomineeIDs.includes(info.imdbID) ? 'selected-card card':'card'} >
-                            <div class="card-horizontal">
+                            <div class="card-horizontal" onClick = {(e) => this.handleInfo(info)}>
                                 <div class="img-square-wrapper">
-                                    <img class="poster" src={info.Poster} alt="Card image cap"></img>
+                                     <img class="poster" src={info.Poster} onerror="this.src='100x150.png'; console.log('notworking');"/>
                                 </div>
                                 <div class="card-body">
                                     <p class="card-title"> {info.Title} <br/> </p>
                                     <p className = 'highlighted1'> {info.Year} </p> 
                                 </div>
                                 <div class="middle">
-                                        {/*this.renderInfo(info)*/}
                                         <p className = {this.state.moreInfo == false ? 'extraInfoTitle shown':'extraInfoTitle'} >
-                                            <span class = 'more' onClick = {(e) => this.handleInfo(info)}> More</span> 
+                                            <span class = 'more'> More</span> 
                                         </p>
                                         <div className = {this.state.moreInfo ? 'extraInfo shown':'extraInfo'}> 
-                                            <p class="card-info" > <span className = 'highlighted'>Title:</span> {this.state.title} <span className = 'highlighted'>({this.state.year})</span> <br/>    <span className = 'highlighted'>Director:</span> {this.state.director}   <br/> <span className = 'highlighted'>Plot:</span> {this.state.plot} <br/> <span className = 'highlighted'>Genre:</span> {this.state.genre} </p>
+                                            <p class="card-info" > <span className = 'highlighted'>Title:</span> {this.state.title} 
+                                                                    <span className = 'highlighted'>({this.state.year})</span> <br/>  
+                                                                    <span className = 'highlighted'>Director:</span> {this.state.director}   <br/> 
+                                                                    <span className = 'highlighted'>Plot:</span> {this.state.plot} <br/> 
+                                                                    <span className = 'highlighted'>Genre:</span> {this.state.genre} 
+                                            </p>
                                         </div>
 
                                 </div>

@@ -1,50 +1,41 @@
-.opnbtn:hover{
-    cursor:pointer;
-    opacity: 0.95;
-    height: 6vh;
+.opnbtn.selected-opnbtn {
+  height: 6vh;
+  cursor: pointer;
+  opacity: 0.95;
+  padding: 0px;
+  border-width: 3px;
+  border-color: #e74242;
+  background-color: #e74242;
+  color: rgb(247, 247, 247);
+  content: "Close";
 }
 
-.selected-opnbtn{
-    height: 6vh;
-    border-radius: 10px 10px 0 0;
-    float: right;
-    transition: 0.2s;
-    border-bottom: 0;
-    background-color: rgb(247, 247, 247);
-    color: black;
-    cursor:pointer;
-    opacity: 0.95;
-    transition: 0.3s;
-    width: 100%;
-    border-color: black;
-    padding: 0px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-    border: none;
+.opnbtn {
+  height: 4vh;
+  border-radius: 10px 10px 0 0;
+  float: right;
+  transition: all ease-out 0.2s;
+  border-bottom: 0;
+  background-color: rgb(247, 247, 247);
+  color: black;
+  border-color: black;
+  width: 100%;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-  .selected-opnbtn:hover span {
-    display:none;
-  }
-  
-  .selected-opnbtn:hover:before {
-    transition-delay: 0.5;
-    content:"Close";
+.faveList {
+  list-style-type: none;
+  padding: 0px 0px;
+  margin: 0px 30px;
+}
 
-  }
-  
-  .selected-opnbtn:hover {
-    border-width: 3px;
-    border-color: #e74242;
-    background-color: #e74242;
-    color:rgb(247, 247, 247);
-  }
-
-.rmvbtn{
+.rmvbtn {
   font-weight: bold;
   border-radius: 5px;
   border-style: solid;
   border-color: #e74242;
-  color:  #e74242;
+  color: #e74242;
   padding: 5px;
   font-size: 12px;
   text-align: center;
@@ -53,84 +44,148 @@
   margin: 7px 0px;
 }
 
-.rmvbtn:hover{
-    color: rgb(247, 247, 247);
-    background-color: #e74242;
-    transform: scale(1.1);
-    cursor: pointer; 
+.Sharebtn {
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #102621;
+  color: #102621;
+  padding: 7px;
+  font-size: 14px;
+  text-align: center;
+  background-color: none;
+  transition: 0.2s;
+  border-radius: 3px;
+  margin: 0px 10px;
 }
-.opnbtn{
-    height: 4vh;
-    border-radius: 10px 10px 0 0;
-    float: right;
-    transition: 0.2s;
-    border-bottom: 0;
-    background-color: rgb(247, 247, 247);
-    color: black;
-    border-color: black;
-    width: 100%;
-    border: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+
+.Clearbtn {
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #e74242;
+  color: #e74242;
+  padding: 7px;
+  font-size: 14px;
+  text-align: center;
+  background-color: none;
+  transition: 0.2s;
+  border-radius: 3px;
+  margin: 7px 10px;
+  margin: 0px 10px;
 }
 
 @media screen and (min-width: 320px) {
-      .nominationItems{
-          width: 85vw;
-          font-size: calc(12px + 6 * ((100vw - 320px) / 680));
-          opacity: 0.95;
-      }
-      .Nominee{
-          align-items: center;
-      }
-      .opnbtn{
-        opacity: 0.7;
-    }
+  .nominationItems {
+    width: 85vw;
+    font-size: calc(12px + 6 * ((100vw - 320px) / 680));
+    opacity: 0.95;
+  }
+  .Nominee {
+    align-items: center;
+  }
+  .opnbtn {
+    opacity: 0.7;
+  }
+  .nominationItems.show {
+    height: 78vh;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .nominationItems {
+    width: 25vw;
+    font-size: 12px;
+    opacity: 0.75;
+  }
+  .opnbtn,
+  .selected-opnbtn {
+    width: 25vw;
   }
 
-  @media screen and (min-width: 1000px) {
-    .nominationItems{
-        width:25vw;
-        font-size: 12px;
-        opacity: 0.75;
-    }
-    .opnbtn, .selected-opnbtn{
-        width:25vw;
-    }
-
+  .rmvbtn:hover {
+    color: rgb(247, 247, 247);
+    background-color: #e74242;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  .Clearbtn:hover {
+    color: rgb(247, 247, 247);
+    background-color: #e74242;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  .Sharebtn:hover {
+    color: rgb(247, 247, 247);
+    background-color: #102622;
+    transform: scale(1.1);
+    cursor: pointer;
   }
 
-
-
-  .nominationItems{
-      margin: 0px;
-      
-      border: none;
-      color: #101318;
-      background-color: rgb(247, 247, 247);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-      height: 0px;
-      overflow: hidden;
-      transition: height ease 0.3s;
+  .selected-opnbtn:hover span {
+    display: none;
   }
 
-  .nominationItems.show{
-      height:72vh;
+  .selected-opnbtn:hover:before {
+    transition-delay: 0.5;
+    content: "Close";
+  }
+  .opnbtn:hover {
+    cursor: pointer;
+    opacity: 0.95;
+    height: 6vh;
   }
 
-  .Nominee{
-      display: flex;
-      flex-direction: column;
-      float: right;
-      font-weight: bold; 
-      scroll-behavior: auto;
-      border-radius: 10px 10px 0 0;
+  .selected-opnbtn:hover {
+    border-width: 3px;
+    border-color: #e74242;
+    background-color: #e74242;
+    color: rgb(247, 247, 247);
   }
 
-  .divider{
-      height: 2px;
-      background-color:#52d19c;
-      width: 100%;
-      margin: 6px 0px 6px 0px;
-      align-self: center; 
+  .nominationItems.show {
+    height: 72vh;
   }
+}
 
+.nominationItems {
+  margin: 0px;
+  border: none;
+  color: #101318;
+  background-color: rgb(247, 247, 247);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+  height: 0px;
+  overflow: hidden;
+  transition: height ease-out 0.4s;
+}
+
+.Nominee {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  font-weight: bold;
+  scroll-behavior: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.divider {
+  height: 2px;
+  background-color: #52d19c;
+  width: 100%;
+  margin: 6px 0px 6px 0px;
+  align-self: center;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-out 0.3s;
+  background-color: #10262233;
+  padding: 10px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.faveListItem {
+  margin: 10px 0px;
+}

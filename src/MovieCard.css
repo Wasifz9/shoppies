@@ -11,21 +11,20 @@
 .card{
     box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.4), 2px 6px 20px 2px rgba(0, 0, 0, 0.3);
     margin: 30px 0;
-    transition: all ease-out 0.4s;
+    transition: all ease-out 0.3s;
     border-radius: 5px;
     padding: 15px;
     background-color: rgb(16, 38, 33);
     background: linear-gradient(90deg, rgba(16,38,33,1) 0%, rgba(16,38,33,1) 71%, rgba(16,38,33,0.9164259453781513) 100%);
     overflow: hidden;
-
 }
 
 .selected-card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     opacity: 0.3;
     pointer-events:none; 
+    transform:scale(0.95);
 }
-
 
 .card-footer{
     background-color: #50B83C;
@@ -42,7 +41,18 @@
     padding: 0px;
 }
 .poster{
-  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.5), 2px 6px 20px 2px rgba(0, 0, 0, 0.4);
+    height: 150px;
+    width: auto;
+    margin: 5px;
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.5), 2px 6px 20px 2px rgba(0, 0, 0, 0.4);  
+}
+.imageHolder{
+  height: 150px;
+  width: 100px;
+  margin: 5px;
+  background-color: #004c3f;
+  text-align: center;
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.5), 2px 6px 20px 2px rgba(0, 0, 0, 0.4);  
 }
 
 .card-footer.inactive{
@@ -56,7 +66,6 @@
     cursor: pointer;
 }
 
-
 .card-title{
     display:flex;
     text-align: left;
@@ -69,7 +78,6 @@
     flex-direction: column;
     margin-left:15px;
 }
-
 
 .middle {
     opacity:0;
@@ -86,11 +94,9 @@
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.15em;
-    
     display: inline-block;
     position: relative;
 }
-
 
 .more:after {    
   background: none repeat scroll 0 0 transparent;
@@ -153,16 +159,6 @@
       font-size: 55px;
     }
   }
-
-  @media screen and (min-width: 320px) {
-
-  }
-
-  @media screen and (min-width: 1000px) {
-
-
-  }
-
   .card-info{
       text-align: left;
       margin: 5px;
@@ -171,7 +167,7 @@
 .extraInfo{
   height: 0px;
   opacity: 0;
-  transition: opacity ease-out 0.5s;
+  transition: opacity ease-in-out 0.5s;
   overflow: hidden;
   padding: 0px;
   margin: 0px;
@@ -227,7 +223,7 @@
 
   to {
       transform: translate3d(0,0,0);
-      opacity: 1
+      opacity: 1;
   }
 }
 
@@ -246,7 +242,7 @@
   animation-duration: 1s;
   animation-fill-mode: both;
   -webkit-animation-duration: 1s;
-  -webkit-animation-fill-mode: both
+  -webkit-animation-fill-mode: both;
 }
 
 .animatedFadeInUp {
@@ -258,6 +254,7 @@
   animation-name: fadeInUp;
   -webkit-animation-name: fadeInUp;
 }
+
 
 
 /*might need later  
